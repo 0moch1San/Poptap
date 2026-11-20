@@ -52,7 +52,7 @@ h2{font-size:28px;font-weight:900;margin-bottom:6px}
  <h1><span>POP</span> <span>TA</span><span>P</span><span>♪</span></h1>
  <p>タップでリズムをきざもう</p>
  <button class="b" style="font-size:22px;padding:16px 48px" onclick="goSel()">START</button>
- <button class="b g s" onclick="goEd()">譜面エディタ</button>
+ <button class="b g s" id="goE" style="display:none" onclick="goEd()">譜面エディタ</button>
 </div>
 
 <div id="sel" class="scr">
@@ -131,6 +131,7 @@ async function getBuf(s){if(s.buf)return s.buf;
 
 function show(id){document.querySelectorAll('.scr,#cv,#ecv').forEach(e=>e.classList.remove('on'));$('#'+id).classList.add('on');if(id=='ed')$('#ecv').classList.add('on');$('#q').style.display=id=='cv'?'block':'none'}
 
+function chkE(){$('#goE').style.display=location.hash=='#maker'?'':'none'}chkE();addEventListener('hashchange',chkE);
 /* ===== 曲選択 ===== */
 let cal=ls.get('cal')||0;
 $('#cal').value=cal;$('#calv').textContent=cal;
